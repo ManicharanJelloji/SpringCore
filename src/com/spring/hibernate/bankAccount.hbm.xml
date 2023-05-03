@@ -1,0 +1,15 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.BankAccount" table="BANK_ACCOUNT_DETAILS" schema="EC">
+		<id name="id" column="BANK_ACCOUNT_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="owner" column="BILLING_DETAILS_OWNER" type="string"></property>
+		<property name="number" column="BILLING_DETAILS_NUMBER" type="string"></property>
+		<property name="createdDate" column="CREATED_DATE" type="date"></property>
+		<property name="bankName" column="BANK_NAME"></property>
+		<property name="bankLocation" column="BANK_LOCATION" type="string"></property>
+		
+	</class>
+</hibernate-mapping>

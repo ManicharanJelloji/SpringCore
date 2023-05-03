@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.Address" table="ADDRESS">
+		<id name="id" column="ADDRESS_ID" type="long">
+			<generator class="foreign">
+				<param name="property">employee</param>
+			</generator>
+		</id>
+		<property name="street" column="STREET"></property>
+		<property name="city" column="CITY"></property>
+		<property name="zipcode" column="ZIPCODE"></property>
+		<one-to-one name="employee" class="com.spring.hibernate.Employee" constrained="true"></one-to-one>
+		
+	</class> 
+</hibernate-mapping>

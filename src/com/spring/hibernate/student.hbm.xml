@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.Student" table="STUDENT1">
+		<id name="id" column="STUDENT_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="STUDENT_NAME" type="string"></property>
+		<set name="course" table="STUDENT_COURSES" cascade="save-update">
+			<key>
+				<column name="STUDENT_ID" />
+			</key>
+			<many-to-many class="com.spring.hibernate.Course" column="COURSE_ID"></many-to-many>
+		</set>
+	
+	</class>
+</hibernate-mapping>

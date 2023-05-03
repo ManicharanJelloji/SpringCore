@@ -1,0 +1,55 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.BillingDetails" table="BILLING_DETAILS" schema="EC">
+		<id name="id" column="BILLING_DETAILS_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="owner" column="BILLING_DETAILS_OWNER" type="string"></property>
+		<property name="number" column="BILLING_DETAILS_NUMBER" type="string"></property>
+		<property name="createdDate" column="CREATED_DATE" type="date"></property>
+			
+			
+	<!-- <class name="com.spring.hibernate.BillingDetails" table="BILLING_DETAILS" schema="EC">
+		<id name="id" column="BILLING_DETAILS_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="owner" column="BILLING_DETAILS_OWNER" type="string"></property>
+		<property name="number" column="BILLING_DETAILS_NUMBER" type="string"></property>
+		<property name="createdDate" column="CREATED_DATE" type="date"></property>-->
+		
+		
+		<!--<class name="com.spring.hibernate.BillingDetails" table="BILLING_DETAILS" discriminator-value="BD" schema="EC">
+			<id name="id" column="BILLING_DETAILS_ID" type="long">
+				<generator class="native"></generator>
+			</id>
+			<discriminator column="BILLING_DETAILS_TYPE" type="string"></discriminator>
+			
+			<property name="owner" column="BILLING_DETAILS_OWNER" type="string"></property>
+			<property name="number" column="BILLING_DETAILS_NUMBER" type="string"></property>
+			<property name="createdDate" column="CREATED_DATE" type="date"></property>-->
+		
+			<!--<subclass name="com.spring.hibernate.CreditCard" discriminator-value="CC">
+				<property name="type" column="CREDIT_CARD_TYPE"></property>
+				<property name="expMonth" column="CREDIT_CARD_EXP_MONTH" type="string"></property>
+				<property name="expYear" column="CREDIT_CARD_EXP_YEAR" type="string"></property>
+			</subclass>
+			<subclass name="com.spring.hibernate.BankAccount" discriminator-value="BA">
+				<property name="bankName" column="BANK_NAME"></property>
+				<property name="bankLocation" column="BANK_LOCATION" type="string"></property>
+			</subclass>-->
+		
+		<joined-subclass name="com.spring.hibernate.CreditCard" table="CREDIT_CARD" schema="EC">
+			<key column="CREDIT_CARD_ID"></key>
+			<property name="type" column="CREDIT_CARD_TYPE"></property>
+			<property name="expMonth" column="CREDIT_CARD_EXP_MONTH" type="string"></property>
+			<property name="expYear" column="CREDIT_CARD_EXP_YEAR" type="string"></property>
+		</joined-subclass>
+		<joined-subclass name="com.spring.hibernate.BankAccount" table="BANK_ACCOUNT" schema="EC">
+			<key column="BANK_ACCOUNT_ID"></key>
+			<property name="bankName" column="BANK_NAME"></property>
+			<property name="bankLocation" column="BANK_LOCATION" type="string"></property>
+		</joined-subclass>
+		
+	</class>
+</hibernate-mapping>

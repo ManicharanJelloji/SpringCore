@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping package="com.spring.hibernate">
+	<class name="Item" schema="EC">
+		<id name="id" column="ITEM_ID" type="long">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" column="ITEM_NAME" not-null="true"></property>
+		<property name="description" type="String">
+			<column name="DESCRIPTION" /> <!-- if we use column as attribute we not use any attributes but if we use the column as a tag then we use different attributes like check,length,non-null,sql-type etc.-->
+		</property>
+		<property name="type" access="field" insert="true"></property><!-- if we observe we didn't created setters and getters for type variable in item but by using access as field we can insert value directly without setters and getters-->
+		<!-- And if we use insert attribute as false then it means its final value and we cannot update it. similarly we can use update tag if we make it false then we can't update it-->
+		<!--<property name="totalIncludingtax" formula="TOTAL+TAX_RATE*3.2"></property>-->
+		<!--<property name="totalIncludingtax" formula="(SELECT avg(i.amount) FROM item i WHERE i.id=ITEM_ID"></property>-->
+		<!--<many-to-one name="parentCategory" column="PARENT_CATEGORY_ID" cascade="all"></many-to-one>-->
+	</class>
+</hibernate-mapping>
+<!-- explicitly if we want to create a table without using this ORM , we can do this by using Naming Convention interface-->

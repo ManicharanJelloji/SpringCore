@@ -1,0 +1,63 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   <!--<bean id="greetingService" class="com.spring.core.GreetingServiceImpl">
+	   <property name="greeting" value="Welcome to Spring Framework"></property>
+   </bean>-->
+   <!--<bean id="roundTable" class="com.spring.core.RoundTable">
+	<constructor-arg value="SpringRoundTable"></constructor-arg>
+	<constructor-arg ref="guest1"></constructor-arg>
+	<constructor-arg ref="instrument"></constructor-arg>
+	<constructor-arg ref="instrument"></constructor-arg>
+	<property name="guest" ref="guest1"></property>
+   </bean>
+   <bean id="guest1" class="com.spring.core.Guest2"></bean>
+   <bean id="gue" class="com.spring.core.Piano"></bean>
+   <bean id="instrument" class="com.spring.core.Piano" scope="prototype"></bean>-->
+   
+   
+   
+   <!-- <bean id="song1" class="com.spring.core.song">
+	   <constructor-arg value="10"></constructor-arg>
+	   <constructor-arg ref="dance"></constructor-arg>
+   </bean>
+   <bean id="dance" class="com.spring.core.Dance">
+	   <constructor-arg value="HIP-POP"></constructor-arg>
+   </bean>-->
+   <!--<bean id="performer" class="com.spring.core.InstrumentList">
+	   <property name="song" value="Jingle bills"></property>
+	   <property name="song"><null/></property>
+	   <property name="instrument">
+		   <map>		  
+			   <entry key="PIANO" value-ref="inst"></entry>
+			   <entry key="GUITAR" value-ref="inst"></entry>
+			   <entry key="INST" value-ref="inst"></entry>
+			   <entry key="IMPL" value-ref="inst"></entry>
+			  
+		   </map>
+		   <props>
+			   <prop key="PIANO">STRUM STRUM STRUM</prop>
+			   <prop key="GUITAR">TRING TRING TRING</prop>
+			   <prop key="IMPL">HUM HUM HUM</prop>
+			   <prop key="INST">inst3</prop>
+		   </props>
+		  	
+	   </property>
+   </bean>
+  <bean id="inst" class="com.spring.core.Piano"></bean>-->
+  <bean id="basePerformer" class="com.spring.core.Member" abstract="true">
+	  <property name="song" value="trim trim"></property>
+	  <property name="instrument" ref="instrument"></property>
+  </bean>
+  <bean id="instrument" class="com.spring.core.Piano"></bean>
+  
+  <bean id="kenny" parent="basePerformer">
+	  <property name="song" value="bunny bunny"></property>
+  </bean>
+  <bean id="david" parent="basePerformer"></bean>
+  
+  
+</beans>

@@ -1,0 +1,11 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.category" table="CATEGORY">
+		<id name="id" column="CATEGORY_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="CATEGORY_NAME"></property>
+		<many-to-one name="parentCategory" column="PARENT_CATEGORY_ID" cascade="all"></many-to-one>
+	</class>
+</hibernate-mapping>

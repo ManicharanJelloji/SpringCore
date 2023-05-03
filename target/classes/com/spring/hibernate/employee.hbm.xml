@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.Employee" table="EMPLOYEE1">
+		<id name="id" column="EMPLOYEE_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="EMPLOYEE_NAME" type="string"></property>
+		<!--<one-to-one name="address" class="com.spring.hibernate.Address" cascade="save-update"></one-to-one>-->
+		<!--<many-to-one name="department" column="DEPARTMENT_ID" class="com.spring.hibernate.Department"></many-to-one>-->
+		
+		<set name="department" table="EMPLOYEE_DEPARTMENT" cascade="all" inverse="true">
+			<key>
+				<column name="EMPLOYEE_ID" />
+			</key>
+			<many-to-many class="com.spring.hibernate.Department" column="DEPARTMENT_ID"></many-to-many>	
+		</set>
+		
+	
+	</class>
+</hibernate-mapping>

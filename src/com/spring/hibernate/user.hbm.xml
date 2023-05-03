@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.User" table="USER1">
+		<id name="id" column="USER_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="username" column="USER_NAME" type="string"></property>
+		<one-to-one name="address" class="com.spring.hibernate.Address" cascade="save-update"></one-to-one>
+		
+		
+		
+		<!--<component name="homeAddress" class="com.spring.hibernate.Address">
+			<property name="street" type="string" column="HOME_STREET" not-null="true"></property>
+			<property name="city" type="string" column="HOME_CITY" not-null="true"></property>
+			<property name="zipcode" type="string" column="HOME_ZIP_CODE" not-null="true"></property>
+		</component>
+		<component name="billingAddress" class="com.spring.hibernate.Address">
+			<property name="street" type="string" column="BILLING_STREET"></property>
+			<property name="city" type="string" column="BILLING_CITY"></property>
+			<property name="zipcode" type="string" column="BILLING_ZIP_CODE"></property>
+		</component>-->
+	</class>
+</hibernate-mapping>

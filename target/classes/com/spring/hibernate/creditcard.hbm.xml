@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.CreditCard" table="CREDIT_CARD" schema="EC">
+		<id name="id" column="CREDIR_CARD_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="type" column="CREDIT_CARD_TYPE"></property>
+		<property name="expMonth" column="CREDIT_CARD_EXP_MONTH" type="string"></property>
+		<property name="expYear" column="CREDIT_CARD_EXP_YEAR" type="string"></property>
+		<property name="owner" column="BILLING_DETAILS_OWNER" type="string"></property>
+		<property name="number" column="BILLING_DETAILS_NUMBER" type="string"></property>
+		<property name="createdDate" column="CREATED_DATE" type="date"></property>
+		
+		
+		
+	</class>
+</hibernate-mapping>

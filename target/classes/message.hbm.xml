@@ -1,0 +1,11 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.spring.hibernate.Message" table="Message">
+		<id name="id" column="MESSAGE_ID">
+			<generator class="increment"></generator>
+		</id>
+		<property name="text" column="MESSAGE_TEXT"></property>
+		<many-to-one name="nextMessage" column="NEXT_MESSAGE_ID" cascade="all"></many-to-one>
+	</class>
+</hibernate-mapping>
